@@ -1,0 +1,145 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "fatura_numarasi": "FTR-001",
+            "musteri_adi": "Ahmet Yılmaz",
+            "tarih": "2024-08-01",
+            "tutar": 1250.50
+        },
+        {
+            "id": 2,
+            "fatura_numarasi": "FTR-002",
+            "musteri_adi": "Ayşe Demir",
+            "tarih": "2024-08-03",
+            "tutar": 890.75
+        },
+        {
+            "id": 3,
+            "fatura_numarasi": "FTR-003",
+            "musteri_adi": "Mehmet Şahin",
+            "tarih": "2024-08-05",
+            "tutar": 540.00
+        },
+        {
+            "id": 4,
+            "fatura_numarasi": "FTR-004",
+            "musteri_adi": "Fatma Aydın",
+            "tarih": "2024-08-07",
+            "tutar": 1345.90
+        },
+        {
+            "id": 5,
+            "fatura_numarasi": "FTR-005",
+            "musteri_adi": "Mustafa Yücel",
+            "tarih": "2024-08-09",
+            "tutar": 230.40
+        },
+        {
+            "id": 6,
+            "fatura_numarasi": "FTR-006",
+            "musteri_adi": "Emine Kaya",
+            "tarih": "2024-08-10",
+            "tutar": 775.25
+        },
+        {
+            "id": 7,
+            "fatura_numarasi": "FTR-007",
+            "musteri_adi": "Ali Güler",
+            "tarih": "2024-08-12",
+            "tutar": 480.60
+        },
+        {
+            "id": 8,
+            "fatura_numarasi": "FTR-008",
+            "musteri_adi": "Hülya Çelik",
+            "tarih": "2024-08-14",
+            "tutar": 1520.00
+        },
+        {
+            "id": 9,
+            "fatura_numarasi": "FTR-009",
+            "musteri_adi": "Murat Özcan",
+            "tarih": "2024-08-16",
+            "tutar": 999.99
+        },
+        {
+            "id": 10,
+            "fatura_numarasi": "FTR-010",
+            "musteri_adi": "Zeynep Karaca",
+            "tarih": "2024-08-18",
+            "tutar": 345.75
+        },
+        {
+            "id": 11,
+            "fatura_numarasi": "FTR-011",
+            "musteri_adi": "Burak Arslan",
+            "tarih": "2024-08-20",
+            "tutar": 890.00
+        },
+        {
+            "id": 12,
+            "fatura_numarasi": "FTR-012",
+            "musteri_adi": "Hakan Yıldız",
+            "tarih": "2024-08-22",
+            "tutar": 175.20
+        },
+        {
+            "id": 13,
+            "fatura_numarasi": "FTR-013",
+            "musteri_adi": "Selin Korkmaz",
+            "tarih": "2024-08-24",
+            "tutar": 670.90
+        },
+        {
+            "id": 14,
+            "fatura_numarasi": "FTR-014",
+            "musteri_adi": "Berk Şentürk",
+            "tarih": "2024-08-25",
+            "tutar": 1490.60
+        },
+        {
+            "id": 15,
+            "fatura_numarasi": "FTR-015",
+            "musteri_adi": "Derya Sarı",
+            "tarih": "2024-08-27",
+            "tutar": 340.80
+        },
+        {
+            "id": 16,
+            "fatura_numarasi": "FTR-016",
+            "musteri_adi": "Eren Taş",
+            "tarih": "2024-08-29",
+            "tutar": 450.75
+        },
+        {
+            "id": 17,
+            "fatura_numarasi": "FTR-017",
+            "musteri_adi": "İrem Çelik",
+            "tarih": "2024-08-31",
+            "tutar": 1299.40
+        },
+        {
+            "id": 18,
+            "fatura_numarasi": "FTR-018",
+            "musteri_adi": "Bora Aksoy",
+            "tarih": "2024-09-01",
+            "tutar": 710.60
+        },
+        {
+            "id": 19,
+            "fatura_numarasi": "FTR-019",
+            "musteri_adi": "Sevil Yılmaz",
+            "tarih": "2024-09-03",
+            "tutar": 630.00
+        },
+        {
+            "id": 20,
+            "fatura_numarasi": "FTR-020",
+            "musteri_adi": "Kemal Akın",
+            "tarih": "2024-09-05",
+            "tutar": 980.20
+        }
+    ],
+    "total": 152
+}
