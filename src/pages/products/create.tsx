@@ -33,7 +33,7 @@ export const CreateInvoice = () => {
         navigate(-1); // Go back to the previous page
     };
 
-   
+
 
     return (
         <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>

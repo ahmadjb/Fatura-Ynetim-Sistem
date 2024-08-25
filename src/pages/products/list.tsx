@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useTable } from "@refinedev/core";
-import { Table, Pagination, Input, Button, Space } from "antd";
+import { Table, Pagination, Input, Button, Space, Modal, message } from "antd";
 import { EyeOutlined, EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { InvoiceDetailsModal } from '../../component/InvoiceDetailsModal';
+import { dataProvider } from '../../providers/data-provider';
 
 export const ListProducts = () => {
     const [searchTerm, setSearchTerm] = useState("");
-
-    const navigate = useNavigate(); // Initialize useNavigate
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [invoiceDetails, setInvoiceDetails] = useState(null);
+    const navigate = useNavigate(); // Initialize useNavigate
+    const pagelen = 7;
 
     const showModal = (details) => {
         setInvoiceDetails(details);
@@ -21,7 +22,6 @@ export const ListProducts = () => {
         setIsModalVisible(false);
     };
 
-
     const {
         tableQuery: { data, isLoading, refetch },
         current,
@@ -31,7 +31,7 @@ export const ListProducts = () => {
         setSorters,
     } = useTable({
         resource: "invoices",
-        pagination: { current: 1, pageSize: 7 },
+        pagination: { current: 1, pageSize: pagelen },
         sorters: { initial: [{ field: "id", order: "asc" }] },
     });
 
@@ -75,8 +75,6 @@ export const ListProducts = () => {
         );
     };
 
-   
-
     const handleView = (id) => {
         const selectedInvoice = data?.data?.find(invoice => invoice.id === id);
         if (selectedInvoice) {
@@ -85,13 +83,34 @@ export const ListProducts = () => {
     };
 
     const handleEdit = (id) => {
-        // Implement edit logic here
         console.log(`Edit ID ${id}`);
+        navigate(`/edit/${id}`);
     };
 
     const handleDelete = (id) => {
-        // Implement delete logic here
-        console.log(`Delete ID ${id}`);
+        Modal.confirm({
+            title: 'Are you sure you want to delete this item?',
+            content: 'This action cannot be undone.',
+            okText: 'Yes',
+            okType: 'danger',
+            cancelText: 'No',
+            onOk: async () => {
+                try {
+                    // Call your delete API
+                    await dataProvider.deleteOne({ resource: 'invoices', id });
+                    message.success('Item deleted successfully');
+                    // Refetch the data to update the table
+                    refetch();
+                } catch (error) {
+                    message.error('Failed to delete item');
+                    console.error('Delete error:', error); // Log error for debugging
+                }
+            },
+            onCancel: () => {
+                // Optional: Handle the case when the user cancels the delete action
+                console.log('Deletion cancelled');
+            }
+        });
     };
 
     const handleCreate = () => {
@@ -204,11 +223,11 @@ export const ListProducts = () => {
             <Pagination
                 current={current}
                 total={data?.total ?? 0}
-                pageSize={10}
+                pageSize={pagelen} // Match this with the pageSize used in useTable
                 onChange={(page) => setCurrent(page)}
-                style={{ marginTop: "16px" ,display:"flex",justifyContent:"center",alignItems:"flex-end"}}
+                style={{ marginTop: "16px", display: "flex", justifyContent: "center", alignItems: "flex-end" }}
             />
-             <InvoiceDetailsModal
+            <InvoiceDetailsModal
                 visible={isModalVisible}
                 details={invoiceDetails}
                 onCancel={handleCancel}

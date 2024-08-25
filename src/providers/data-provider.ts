@@ -74,19 +74,29 @@ export const dataProvider: DataProvider = {
     update: async ({ resource, id, variables }) => {
         const index = localData.findIndex(item => item.id === id);
         if (index === -1) throw new Error("Not found");
-
+    
         const updatedItem = {
             ...localData[index], // Spread the existing item
             ...variables, // Overwrite with new values
         };
-
+    
         localData[index] = updatedItem; // Update the item in the array
-
+    
         return {
             data: updatedItem,
         };
     },
+    
+     deleteOne: async ({ resource, id }) => {
+        const index = localData.findIndex(item => item.id === id);
+        if (index === -1) throw new Error("Not found");
+
+        localData.splice(index, 1); // Remove the item from the array
+
+        return {
+            data: { id }
+        };
+    },
     getApiUrl: () => API_URL,
-    deleteOne: () => { throw new Error("Not implemented"); },
-    /* ... */
+   
 };
