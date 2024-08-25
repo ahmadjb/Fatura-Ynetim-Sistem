@@ -3,11 +3,24 @@ import { useTable } from "@refinedev/core";
 import { Table, Pagination, Input, Button, Space } from "antd";
 import { EyeOutlined, EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { InvoiceDetailsModal } from '../../component/InvoiceDetailsModal';
 
 export const ListProducts = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const navigate = useNavigate(); // Initialize useNavigate
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [invoiceDetails, setInvoiceDetails] = useState(null);
+
+    const showModal = (details) => {
+        setInvoiceDetails(details);
+        setIsModalVisible(true);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
 
     const {
         tableQuery: { data, isLoading, refetch },
@@ -62,9 +75,13 @@ export const ListProducts = () => {
         );
     };
 
+   
+
     const handleView = (id) => {
-        // Implement view details logic here
-        console.log(`View details for ID ${id}`);
+        const selectedInvoice = data?.data?.find(invoice => invoice.id === id);
+        if (selectedInvoice) {
+            showModal(selectedInvoice);
+        }
     };
 
     const handleEdit = (id) => {
@@ -190,6 +207,11 @@ export const ListProducts = () => {
                 pageSize={10}
                 onChange={(page) => setCurrent(page)}
                 style={{ marginTop: "16px" ,display:"flex",justifyContent:"center",alignItems:"flex-end"}}
+            />
+             <InvoiceDetailsModal
+                visible={isModalVisible}
+                details={invoiceDetails}
+                onCancel={handleCancel}
             />
         </div>
     );

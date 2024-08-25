@@ -33,10 +33,7 @@ export const CreateInvoice = () => {
         navigate(-1); // Go back to the previous page
     };
 
-    const handleSubmit =()=>{
-
-       // navigate('/'); // Redirect to the invoices list page on success
-    };
+   
 
     return (
         <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
@@ -98,7 +95,6 @@ export const CreateInvoice = () => {
                             Go Back
                         </Button>
                         <Button
-                        onClick={handleSubmit}
                             type="primary"
                             htmlType="submit"
                             loading={mutation.isLoading}

@@ -1,13 +1,13 @@
 import { useOne } from "@refinedev/core";
-import { useParams } from "react-router-dom";
 import { Card, Descriptions, Spin, Alert } from "antd";
 
-export const ShowProduct = () => {
-    const { id } = useParams();  // Get the id from the URL parameters
+export const ShowProduct = ({ id, visible, onClose }) => {
     const { data, isLoading, isError } = useOne({
-        resource: "invoices", 
+        resource: "invoices",
         id,
     });
+
+    if (!visible) return null; // Don't render anything if the modal is not visible
 
     if (isLoading) {
         return (
@@ -26,7 +26,7 @@ export const ShowProduct = () => {
     }
 
     return (
-        <Card title="Invoice Details" bordered={false} style={{ maxWidth: 600, margin: '50px auto' }}>
+        <Card title="Invoice Details" bordered={false} style={{ maxWidth: 600, margin: '0 auto' }}>
             <Descriptions bordered column={1}>
                 <Descriptions.Item label="ID">{data?.data.id}</Descriptions.Item>
                 <Descriptions.Item label="Fatura Numarası">{data?.data.fatura_numarasi}</Descriptions.Item>
