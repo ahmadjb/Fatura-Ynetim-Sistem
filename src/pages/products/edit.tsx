@@ -13,7 +13,7 @@ export const EditInvoice = () => {
     const { id } = useParams(); // Get the invoice ID from the URL
     const navigate = useNavigate();
     const { data: invoice, isLoading } = useOne({ resource: 'invoices', id });
-    
+
     const { onFinish, mutation } = useForm({
         action: 'update',
         resource: 'invoices',
@@ -58,8 +58,8 @@ export const EditInvoice = () => {
     };
 
     return (
-        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-            <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Edit Invoice</h1>
+        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1px' }}>
+            <h1 style={{ textAlign: 'center', marginBottom: '15px' }}>Edit Invoice</h1>
             <Form
                 layout="vertical"
                 onFinish={onFinishHandler}
@@ -90,7 +90,7 @@ export const EditInvoice = () => {
                     <DatePicker
                         format="YYYY-MM-DD"
                         style={{ width: '100%' }}
-                        placeholder={defaultValues.tarih ? defaultValues.tarih.format('YYYY-MM-DD') : "e.g. 2024-09-03"}
+                        placeholder={defaultValues.tarih ? defaultValues.tarih.format('YYYY-MM-DD') : 'YYYY-MM-DD'}
                         defaultValue={defaultValues.tarih}
                     />
                 </Form.Item>

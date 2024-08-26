@@ -158,6 +158,13 @@ export const ListProducts = () => {
             sorter: true,
             sortOrder: getSorter("tutar"),
             onHeaderCell: () => ({ onClick: () => onSort("tutar") }),
+        },{
+            title: "invoice_status",
+            dataIndex: "invoice_status",
+            key: "invoice_status",
+            sorter: true,
+            sortOrder: getSorter("invoice_status"),
+            onHeaderCell: () => ({ onClick: () => onSort("invoice_status") }),
         },
         {
             title: "Actions",
@@ -169,6 +176,7 @@ export const ListProducts = () => {
                         onClick={() => handleView(record.id)}
                         type="primary"
                         size="small"
+                        
                     >
                         View
                     </Button>
@@ -198,12 +206,21 @@ export const ListProducts = () => {
     return (
         <div>
             <h1>Invoices</h1>
-            <Space style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+            <Space
+                style={{
+                    marginBottom: "16px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between", // This will space out the items
+                    backgroundColor: "",
+                    padding: "0 16px" // Add some padding if needed
+                }}
+            >
                 <Input.Search
                     placeholder="Search by name or invoice number"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    style={{ width: 400 }}
+                    style={{ width: 300,backgroundColor: "" }}
                 />
                 <Button
                     icon={<PlusOutlined />}

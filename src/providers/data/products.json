@@ -179,6 +179,23 @@
             "tutar": 980.20,
             "payment_method": "Bank Transfer",
             "invoice_status": "Pending"
+        },{
+            "id": 21,
+            "fatura_numarasi": "FTR-019",
+            "musteri_adi": "Sevil Sevil Yılmaz",
+            "tarih": "2024-09-03",
+            "tutar": 630.00,
+            "payment_method": "Credit Card",
+            "invoice_status": "Paid"
+        },
+        {
+            "id": 22,
+            "fatura_numarasi": "FTR-020",
+            "musteri_adi": "Sevil Akın",
+            "tarih": "2024-09-05",
+            "tutar": 980.20,
+            "payment_method": "Bank Transfer",
+            "invoice_status": "Pending"
         }
     ],
     "total": 152

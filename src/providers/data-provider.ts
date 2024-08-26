@@ -72,20 +72,23 @@ export const dataProvider: DataProvider = {
         };
     },
     update: async ({ resource, id, variables }) => {
-        const index = localData.findIndex(item => item.id === id);
+        const index = localData.findIndex(item => item.id === Number(id));
         if (index === -1) throw new Error("Not found");
     
+        // Update the item with the new variables
         const updatedItem = {
-            ...localData[index], // Spread the existing item
-            ...variables, // Overwrite with new values
+            ...localData[index],
+            ...variables, // Merge the updated fields
         };
     
-        localData[index] = updatedItem; // Update the item in the array
+        // Replace the old item with the updated one
+        localData[index] = updatedItem;
     
         return {
             data: updatedItem,
         };
     },
+    
     
      deleteOne: async ({ resource, id }) => {
         const index = localData.findIndex(item => item.id === id);
