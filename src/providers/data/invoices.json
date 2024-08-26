@@ -6,8 +6,8 @@
             "musteri_adi": "Ahmet Yılmaz",
             "tarih": "2024-08-01",
             "tutar": 1250.50,
-            "payment_method": "Credit Card",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Kredi Kartı",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 2,
@@ -15,8 +15,8 @@
             "musteri_adi": "Ayşe Demir",
             "tarih": "2024-08-03",
             "tutar": 890.75,
-            "payment_method": "Bank Transfer",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Banka Havalesi",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 3,
@@ -24,8 +24,8 @@
             "musteri_adi": "Mehmet Şahin",
             "tarih": "2024-08-05",
             "tutar": 540.00,
-            "payment_method": "Cash",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Nakit",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 4,
@@ -33,8 +33,8 @@
             "musteri_adi": "Fatma Aydın",
             "tarih": "2024-08-07",
             "tutar": 1345.90,
-            "payment_method": "Credit Card",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Kredi Kartı",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 5,
@@ -42,8 +42,8 @@
             "musteri_adi": "Mustafa Yücel",
             "tarih": "2024-08-09",
             "tutar": 230.40,
-            "payment_method": "Bank Transfer",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Banka Havalesi",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 6,
@@ -51,8 +51,8 @@
             "musteri_adi": "Emine Kaya",
             "tarih": "2024-08-10",
             "tutar": 775.25,
-            "payment_method": "Cash",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Nakit",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 7,
@@ -60,8 +60,8 @@
             "musteri_adi": "Ali Güler",
             "tarih": "2024-08-12",
             "tutar": 480.60,
-            "payment_method": "Credit Card",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Kredi Kartı",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 8,
@@ -69,8 +69,8 @@
             "musteri_adi": "Hülya Çelik",
             "tarih": "2024-08-14",
             "tutar": 1520.00,
-            "payment_method": "Bank Transfer",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Banka Havalesi",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 9,
@@ -78,8 +78,8 @@
             "musteri_adi": "Murat Özcan",
             "tarih": "2024-08-16",
             "tutar": 999.99,
-            "payment_method": "Cash",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Nakit",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 10,
@@ -87,8 +87,8 @@
             "musteri_adi": "Zeynep Karaca",
             "tarih": "2024-08-18",
             "tutar": 345.75,
-            "payment_method": "Credit Card",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Kredi Kartı",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 11,
@@ -96,8 +96,8 @@
             "musteri_adi": "Burak Arslan",
             "tarih": "2024-08-20",
             "tutar": 890.00,
-            "payment_method": "Bank Transfer",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Banka Havalesi",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 12,
@@ -105,8 +105,8 @@
             "musteri_adi": "Hakan Yıldız",
             "tarih": "2024-08-22",
             "tutar": 175.20,
-            "payment_method": "Cash",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Nakit",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 13,
@@ -114,8 +114,8 @@
             "musteri_adi": "Selin Korkmaz",
             "tarih": "2024-08-24",
             "tutar": 670.90,
-            "payment_method": "Credit Card",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Kredi Kartı",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 14,
@@ -123,8 +123,8 @@
             "musteri_adi": "Berk Şentürk",
             "tarih": "2024-08-25",
             "tutar": 1490.60,
-            "payment_method": "Bank Transfer",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Banka Havalesi",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 15,
@@ -132,8 +132,8 @@
             "musteri_adi": "Derya Sarı",
             "tarih": "2024-08-27",
             "tutar": 340.80,
-            "payment_method": "Cash",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Nakit",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 16,
@@ -141,8 +141,8 @@
             "musteri_adi": "Eren Taş",
             "tarih": "2024-08-29",
             "tutar": 450.75,
-            "payment_method": "Credit Card",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Kredi Kartı",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 17,
@@ -150,8 +150,8 @@
             "musteri_adi": "İrem Çelik",
             "tarih": "2024-08-31",
             "tutar": 1299.40,
-            "payment_method": "Bank Transfer",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Banka Havalesi",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 18,
@@ -159,8 +159,8 @@
             "musteri_adi": "Bora Aksoy",
             "tarih": "2024-09-01",
             "tutar": 710.60,
-            "payment_method": "Cash",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Nakit",
+            "fatura_durumu": "Beklemede"
         },
         {
             "id": 19,
@@ -168,8 +168,8 @@
             "musteri_adi": "Sevil Yılmaz",
             "tarih": "2024-09-03",
             "tutar": 630.00,
-            "payment_method": "Credit Card",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Kredi Kartı",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 20,
@@ -177,16 +177,17 @@
             "musteri_adi": "Kemal Akın",
             "tarih": "2024-09-05",
             "tutar": 980.20,
-            "payment_method": "Bank Transfer",
-            "invoice_status": "Pending"
-        },{
+            "odeme_yontemi": "Banka Havalesi",
+            "fatura_durumu": "Beklemede"
+        },
+        {
             "id": 21,
             "fatura_numarasi": "FTR-019",
             "musteri_adi": "Sevil Sevil Yılmaz",
             "tarih": "2024-09-03",
             "tutar": 630.00,
-            "payment_method": "Credit Card",
-            "invoice_status": "Paid"
+            "odeme_yontemi": "Kredi Kartı",
+            "fatura_durumu": "Ödendi"
         },
         {
             "id": 22,
@@ -194,8 +195,8 @@
             "musteri_adi": "Sevil Akın",
             "tarih": "2024-09-05",
             "tutar": 980.20,
-            "payment_method": "Bank Transfer",
-            "invoice_status": "Pending"
+            "odeme_yontemi": "Banka Havalesi",
+            "fatura_durumu": "Beklemede"
         }
     ]
 }

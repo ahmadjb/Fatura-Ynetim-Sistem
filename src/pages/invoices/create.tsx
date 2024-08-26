@@ -34,32 +34,34 @@ export const CreateInvoice = () => {
 
     return (
         <div className="container">
-            <h1 className="heading">Create a New Invoice</h1>
+           
+            <h1 className="heading main-text">Yeni Bir Fatura Oluştur</h1>
             <Form
                 layout="vertical"
                 onFinish={onFinishHandler}
-                initialValues={{ tutar: 0, payment_method: "Bank Transfer", invoice_status: "Pending" }}
+                initialValues={{ tutar: 0, odeme_yontemi: "Bank Transfer", fatura_durumu: "Pending" }}
+                 className="form-container"
             >
                 <Form.Item
-                    label="Invoice Number"
+                    label="Fatura Numarası"
                     name="fatura_numarasi"
                     className="form-item"
                     rules={[{ required: true, message: 'Please input the invoice number!' }]}
                 >
-                    <Input placeholder="Enter invoice number" />
+                    <Input placeholder="Fatura Numarasını Girin" />
                 </Form.Item>
 
                 <Form.Item
-                    label="Customer Name"
+                    label="Müşteri Adı"
                     name="musteri_adi"
                     className="form-item"
                     rules={[{ required: true, message: 'Please input the customer name!' }]}
                 >
-                    <Input placeholder="Enter customer name" />
+                    <Input placeholder="Müşteri Adını Girin" />
                 </Form.Item>
 
                 <Form.Item
-                    label="Date"
+                    label="Tarih"
                     name="tarih"
                     className="form-item"
                     rules={[{ required: true, message: 'Please select the date!' }]}
@@ -68,37 +70,37 @@ export const CreateInvoice = () => {
                 </Form.Item>
 
                 <Form.Item
-                    label="Amount"
+                    label="Tutar"
                     name="tutar"
                     className="form-item"
-                    rules={[{ required: true, message: 'Please input the amount!' }]}
+                    rules={[{ required: true, message: 'Lütfen tutarı girin!' }]}
                 >
                     <Input type="number" step=".01" placeholder="Enter amount" />
                 </Form.Item>
 
                 <Form.Item
-                    label="Payment Method"
-                    name="payment_method"
+                    label="Ödeme Yontemi"
+                    name="odeme_yontemi"
                     className="form-item"
-                    rules={[{ required: true, message: 'Please select the payment method!' }]}
+                    rules={[{ required: true, message: 'Lütfen ödeme yöntemini seçin!' }]}
                 >
-                    <Select placeholder="Select payment method">
-                        <Option value="Bank Transfer">Bank Transfer</Option>
-                        <Option value="Credit Card">Credit Card</Option>
-                        <Option value="Cash">Cash</Option>
+                    <Select placeholder="Ödeme Yöntemini Seçin">
+                        <Option value="Bank Transfer">Banka Havalesi</Option>
+                        <Option value="Credit Card">Kredi kartı</Option>
+                        <Option value="Cash">Peşin</Option>
                     </Select>
                 </Form.Item>
 
                 <Form.Item
                     label="Invoice Status"
-                    name="invoice_status"
+                    name="fatura_durumu"
                     className="form-item"
-                    rules={[{ required: true, message: 'Please select the invoice status!' }]}
+                    rules={[{ required: true, message: 'Lütfen fatura durumunu seçin!' }]}
                 >
                     <Select placeholder="Select invoice status">
-                        <Option value="Pending">Pending</Option>
-                        <Option value="Paid">Paid</Option>
-                        <Option value="Cancelled">Cancelled</Option>
+                        <Option value="Pending">Beklemede</Option>
+                        <Option value="Paid">Ödenmiş</Option>
+                        <Option value="Cancelled">iptal Edildi</Option>
                     </Select>
                 </Form.Item>
 
@@ -117,11 +119,12 @@ export const CreateInvoice = () => {
                             loading={mutation.isLoading}
                             className="button-submit"
                         >
-                            Submit
+                            Gönder
                         </Button>
                     </Space>
                 </Form.Item>
             </Form>
+         
         </div>
     );
 };

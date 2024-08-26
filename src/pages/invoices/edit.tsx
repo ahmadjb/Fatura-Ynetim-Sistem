@@ -63,13 +63,13 @@ export const EditInvoice = () => {
         musteri_adi: invoice?.data?.musteri_adi || '',
         tarih: null,
         tutar: invoice?.data?.tutar || 0,
-        payment_method: invoice?.data?.payment_method || PAYMENT_METHODS[0],
-        invoice_status: invoice?.data?.invoice_status || INVOICE_STATUSES[0],
+        odeme_yontemi: invoice?.data?.odeme_yontemi || PAYMENT_METHODS[0],
+        fatura_durumu: invoice?.data?.fatura_durumu || INVOICE_STATUSES[0],
     };
 
     return (
         <div className="container">
-            <h1 className="heading">Edit Invoice</h1>
+            <h1 className="heading main-text">Edit Invoice</h1>
             <Form
                 layout="vertical"
                 onFinish={onFinishHandler}
@@ -77,25 +77,25 @@ export const EditInvoice = () => {
                 className="form-container"
             >
                 <Form.Item
-                    label="Invoice Number"
+                    label="Fatura Numarasi"
                     name="fatura_numarasi"
                     className="form-item"
-                    rules={[{ required: true, message: 'Please input the invoice number!' }]}
+                    rules={[{ required: false, message: 'Please input the invoice number!' }]}
                 >
                     <Input placeholder={defaultValues.fatura_numarasi || "e.g. FTR-000"} />
                 </Form.Item>
 
                 <Form.Item
-                    label="Customer Name"
+                    label="Musteri Adi"
                     name="musteri_adi"
                     className="form-item"
-                    rules={[{ required: true, message: 'Please input the customer name!' }]}
+                    rules={[{ required: false, message: 'Please input the customer name!' }]}
                 >
                     <Input placeholder={defaultValues.musteri_adi || "e.g. name"} />
                 </Form.Item>
 
                 <Form.Item
-                    label="Date"
+                    label="Tarih"
                     name="tarih"
                     className="form-item"
                     rules={[{ required: true, message: 'Please select the date!' }]}
@@ -109,10 +109,10 @@ export const EditInvoice = () => {
                 </Form.Item>
 
                 <Form.Item
-                    label="Amount"
+                    label="Tutar"
                     name="tutar"
                     className="form-item"
-                    rules={[{ required: true, message: 'Please input the amount!' }]}
+                    rules={[{ required: false, message: 'Please input the amount!' }]}
                 >
                     <InputNumber
                         min={0}
@@ -123,12 +123,12 @@ export const EditInvoice = () => {
                 </Form.Item>
 
                 <Form.Item
-                    label="Payment Method"
+                    label="Ödeme Yöntemi"
                     name="payment_method"
                     className="form-item"
-                    rules={[{ required: true, message: 'Please select the payment method!' }]}
+                    rules={[{ required: false, message: 'Please select the payment method!' }]}
                 >
-                    <Select placeholder={defaultValues.payment_method || "e.g. Credit Card"}>
+                    <Select placeholder={defaultValues.odeme_yontemi || "e.g. Credit Card"}>
                         {PAYMENT_METHODS.map(method => (
                             <Option key={method} value={method}>
                                 {method}
@@ -139,11 +139,11 @@ export const EditInvoice = () => {
 
                 <Form.Item
                     label="Invoice Status"
-                    name="invoice_status"
+                    name="fatura_durumu"
                     className="form-item"
-                    rules={[{ required: true, message: 'Please select the invoice status!' }]}
+                    rules={[{ required: false, message: 'Please select the invoice status!' }]}
                 >
-                    <Select placeholder={defaultValues.invoice_status || "e.g. Paid"}>
+                    <Select placeholder={defaultValues.fatura_durumu || "e.g. Paid"}>
                         {INVOICE_STATUSES.map(status => (
                             <Option key={status} value={status}>
                                 {status}
@@ -159,7 +159,7 @@ export const EditInvoice = () => {
                             icon={<ArrowLeftOutlined />}
                             className="button-back"
                         >
-                            Go Back
+                            Geri Dön
                         </Button>
                         <Button
                             type="primary"
@@ -167,7 +167,7 @@ export const EditInvoice = () => {
                             loading={mutation.isLoading}
                             className="button-submit"
                         >
-                            Submit
+                            Gönder
                         </Button>
                     </Space>
                 </Form.Item>

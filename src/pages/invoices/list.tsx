@@ -114,11 +114,11 @@ export const ListProducts = () => {
 
     const handleDelete = (id) => {
         Modal.confirm({
-            title: 'Are you sure you want to delete this item?',
-            content: 'This action cannot be undone.',
-            okText: 'Yes',
+            title: 'Bu öğeyi silmek istediğinizden emin misiniz?',
+            content: 'Bu işlem geri alınamaz.',
+            okText: 'Evet',
             okType: 'danger',
-            cancelText: 'No',
+            cancelText: 'Hayır',
             onOk: async () => {
                 try {
                     // Call your delete API
@@ -153,7 +153,7 @@ export const ListProducts = () => {
             onHeaderCell: () => ({ onClick: () => onSort("id") }),
         },
         {
-            title: "Invoice Number",
+            title: "Fatura Numarası",
             dataIndex: "fatura_numarasi",
             key: "fatura_numarasi",
             sorter: true,
@@ -161,7 +161,7 @@ export const ListProducts = () => {
             onHeaderCell: () => ({ onClick: () => onSort("fatura_numarasi") }),
         },
         {
-            title: "Customer Name",
+            title: "Müşteri Adı",
             dataIndex: "musteri_adi",
             key: "musteri_adi",
             sorter: true,
@@ -169,7 +169,7 @@ export const ListProducts = () => {
             onHeaderCell: () => ({ onClick: () => onSort("musteri_adi") }),
         },
         {
-            title: "Date",
+            title: "Tarih",
             dataIndex: "tarih",
             key: "tarih",
             sorter: true,
@@ -177,22 +177,22 @@ export const ListProducts = () => {
             onHeaderCell: () => ({ onClick: () => onSort("tarih") }),
         },
         {
-            title: "Amount",
+            title: "Tutar",
             dataIndex: "tutar",
             key: "tutar",
             sorter: true,
             sortOrder: getSorter("tutar"),
             onHeaderCell: () => ({ onClick: () => onSort("tutar") }),
         }, {
-            title: "invoice_status",
-            dataIndex: "invoice_status",
-            key: "invoice_status",
+            title: "Fatura Durumu",
+            dataIndex: "fatura_durumu",
+            key: "fatura_durumu",
             sorter: true,
-            sortOrder: getSorter("invoice_status"),
-            onHeaderCell: () => ({ onClick: () => onSort("invoice_status") }),
+            sortOrder: getSorter("fatura_durumu"),
+            onHeaderCell: () => ({ onClick: () => onSort("fatura_durumu") }),
         },
         {
-            title: "Actions",
+            title: "İşlemler",
             key: "actions",
             render: (_, record) => (
                 <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>
@@ -203,7 +203,7 @@ export const ListProducts = () => {
                         size="small"
 
                     >
-                        View
+                        Görüntüle
                     </Button>
                     <Button
                         icon={<EditOutlined />}
@@ -211,7 +211,7 @@ export const ListProducts = () => {
                         type="default"
                         size="small"
                     >
-                        Edit
+                        Düzenle
                     </Button>
                     <Button
                         icon={<DeleteOutlined />}
@@ -221,7 +221,7 @@ export const ListProducts = () => {
                         size="small"
                         style={{ backgroundColor: "#ff4d4f", borderColor: "#ff4d4f", color: "#fff", padding: "0 12px" }}
                     >
-                        Delete
+                        Sil
                     </Button>
                 </div>
             ),
@@ -233,7 +233,7 @@ export const ListProducts = () => {
             <h1 className="main-text">Fatura listesi</h1>
             <Space className="space-container">
                 <Input.Search
-                    placeholder="Search by name or invoice number"
+                    placeholder="İsim veya fatura numarasına göre ara"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="search-input"
@@ -244,7 +244,7 @@ export const ListProducts = () => {
                     type="primary"
                     className="create-button"
                 >
-                    Create Invoice
+                    Fatura Oluştur
                 </Button>
             </Space>
 
