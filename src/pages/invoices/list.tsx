@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useTable } from "@refinedev/core";
+import { useTable, useOne } from "@refinedev/core";
 import { Table, Pagination, Input, Button, Space, Modal, message } from "antd";
 import { EyeOutlined, EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
@@ -113,8 +113,12 @@ export const ListProducts = () => {
     };
 
     const handleDelete = (id) => {
+
+        const selectedInvoice = data?.data?.find(invoice => invoice.id === id);
+        const customerName = selectedInvoice?.musteri_adi || 'müşteri';
+
         Modal.confirm({
-            title: 'Bu öğeyi silmek istediğinizden emin misiniz?',
+            title: `${customerName}  silmek istediğinizden emin misiniz?`,
             content: 'Bu işlem geri alınamaz.',
             okText: 'Evet',
             okType: 'danger',
@@ -123,7 +127,7 @@ export const ListProducts = () => {
                 try {
                     // Call your delete API
                     await dataProvider.deleteOne({ resource: 'invoices', id });
-                    message.success('Item deleted successfully');
+                    message.success(customerName + '  deleted successfully');
                     // Refetch the data to update the table
                     refetch();
                 } catch (error) {
