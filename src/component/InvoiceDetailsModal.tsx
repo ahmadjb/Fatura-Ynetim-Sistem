@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button, Card, Descriptions } from 'antd';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable'; // Import the autotable plugin
+import 'jspdf-autotable';
 
 interface InvoiceDetailsModalProps {
     visible: boolean;
@@ -43,11 +43,11 @@ export const InvoiceDetailsModal: React.FC<InvoiceDetailsModalProps> = ({ visibl
         doc.autoTable({
             columns: columns,
             body: data,
-            startY: 30, // Start position of the table
-            margin: { left: 14, right: 14 }, // Margin to align with text
+            startY: 30,
+            margin: { left: 14, right: 14 },
             styles: { cellPadding: 5, fontSize: 12, overflow: 'linebreak' },
             headStyles: { fillColor: [22, 160, 133], textColor: [255, 255, 255] },
-            theme: 'striped' // Optional: 'striped' or 'grid' for table styling
+            theme: 'striped'
         });
 
         // Save the PDF
@@ -67,7 +67,7 @@ export const InvoiceDetailsModal: React.FC<InvoiceDetailsModalProps> = ({ visibl
                     Close
                 </Button>,
             ]}
-            width={600} // Adjust width as needed
+            width={600}
         >
             {details && (
                 <Card bordered={false} style={{ maxWidth: 600, margin: '0 auto' }}>

@@ -12,8 +12,8 @@ export const ListProducts = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [invoiceDetails, setInvoiceDetails] = useState(null);
-    const navigate = useNavigate(); // Initialize useNavigate
-    const pagelen = 7
+    const navigate = useNavigate();
+    let pagelen = 7
 
 
     const showModal = (details) => {
@@ -37,13 +37,13 @@ export const ListProducts = () => {
         pagination: { current: 1, pageSize: pagelen },
         sorters: { initial: [{ field: "id", order: "asc" }] },
     });
-    console.log(len);
+
     // Ensure refetch happens after the component is mounted or data length changes
     useEffect(() => {
         refetch();
     }, [data?.data?.length]);
 
-    // Optionally, refetch when the search term is cleared or updated
+
     useEffect(() => {
         if (searchTerm === "") {
             refetch();
@@ -75,7 +75,7 @@ export const ListProducts = () => {
         key: `${item.id}-${index}`, // Create a unique key for each item
     }));
 
-    console.log(filteredData);
+    //console.log(filteredData);
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -100,15 +100,14 @@ export const ListProducts = () => {
     };
 
     const handleView = (id) => {
-        const selectedInvoice = data?.data?.find(invoice => invoice.id === id);
+        const selectedInvoice = len?.data?.find(invoice => invoice.id === id);
         if (selectedInvoice) {
             showModal(selectedInvoice);
         }
     };
 
     const handleEdit = (id) => {
-
-        console.log(data);
+        
         navigate(`/edit/${id}`, { state: { invoiceData: data } });
     };
 
@@ -136,14 +135,12 @@ export const ListProducts = () => {
                 }
             },
             onCancel: () => {
-                // Optional: Handle the case when the user cancels the delete action
                 console.log('Deletion cancelled');
             }
         });
     };
 
     const handleCreate = () => {
-        // Navigate to create page
         navigate('/create');
     };
 

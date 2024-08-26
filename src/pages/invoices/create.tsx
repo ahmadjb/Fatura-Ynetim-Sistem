@@ -24,12 +24,12 @@ export const CreateInvoice = () => {
     React.useEffect(() => {
         if (mutation.isSuccess) {
             message.success('Invoice created successfully!');
-            navigate('/'); // Redirect to the invoices list page on success
+            navigate('/'); 
         }
     }, [mutation.isSuccess, navigate]);
 
     const handleBack = () => {
-        navigate(-1); // Go back to the previous page
+        navigate(-1); 
     };
 
     return (

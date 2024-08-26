@@ -10,7 +10,7 @@ const localData = file.data;
 
 export const dataProvider: DataProvider = {
     getList: async ({ resource, pagination, filters, sorters, meta }) => {
-        let data = [...localData]; // Copy the local data to avoid modifying the original
+        let data = [...localData];
 
         // Apply pagination
         if (pagination) {
@@ -39,7 +39,7 @@ export const dataProvider: DataProvider = {
             });
         }
 
-        // Total count of data
+
         const total = localData.length;
         return {
             data,
@@ -83,10 +83,10 @@ export const dataProvider: DataProvider = {
         const index = localData.findIndex(item => item.id === Number(id));
         if (index === -1) throw new Error("Not found");
 
-        // Update the item with the new variables
+
         const updatedItem = {
             ...localData[index],
-            ...variables, // Merge the updated fields
+            ...variables,
         };
 
         // Replace the old item with the updated one

@@ -20,7 +20,8 @@
 
 /* Form item styling */
 .form-item {
-    margin-bottom: 16px; /* Adjust spacing between form items */
+    margin-bottom: 16px;
+    /* Adjust spacing between form items */
 }
 
 /* Button styling */
@@ -54,7 +55,8 @@
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 1px; /* Adjust padding as needed */
+    padding: 1px;
+    /* Adjust padding as needed */
 }
 
 /* Heading styling */
@@ -73,13 +75,15 @@
 
 /* Form item styling */
 .form-item {
-    margin-bottom: 16px; /* Adjust spacing between form items */
+    margin-bottom: 16px;
+    /* Adjust spacing between form items */
 }
 
 /* Button styling */
 .button-back {
     background-color: #fff;
-    border-color: #1890ff; /* Blue border color */
+    border-color: #1890ff;
+    /* Blue border color */
     color: #000;
     border-radius: 4px;
     padding: 0 16px;
@@ -107,13 +111,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: /* Add your color here if needed */;
+    background-color:
+        /* Add your color here if needed */
+    ;
     padding: 0 16px;
 }
 
 .search-input {
     width: 300px;
-    background-color: /* Add your color here if needed */;
+    background-color:
+        /* Add your color here if needed */
+    ;
 }
 
 .create-button {

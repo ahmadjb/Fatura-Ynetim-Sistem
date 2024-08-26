@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 
 
-// Define the possible payment methods and invoice statuses
+
 const PAYMENT_METHODS = ["Credit Card", "Bank Transfer"];
 const INVOICE_STATUSES = ["Paid", "Pending", "Unpaid"];
 
@@ -24,7 +24,6 @@ export const EditInvoice = () => {
 
 
     const onFinishHandler = (values) => {
-        // Format the date to "YYYY-MM-DD"
         const formattedValues = {
             id: Number(id),
             ...values,
@@ -32,32 +31,28 @@ export const EditInvoice = () => {
             tarih: values?.tarih ? values.tarih.format('YYYY-MM-DD') : null,
         };
 
-        console.log("Formatted form values before submission:", formattedValues);
+        // console.log("Formatted form values before submission:", formattedValues);
 
         onFinish(formattedValues);
     };
 
 
 
-    // Show success message on successful submission
     React.useEffect(() => {
         if (mutation.isSuccess) {
             message.success('Invoice updated successfully!');
-            navigate('/'); // Redirect to the invoices list page on success
+            navigate('/');
         }
     }, [mutation.isSuccess, navigate]);
 
-    // Handle back navigation
     const handleBack = () => {
-        navigate(-1); // Go back to the previous page
+        navigate(-1);
     };
 
-    // Display a loading message while fetching data
     if (isLoading) {
         return <div>Loading...</div>;
     }
 
-    // Default values in case the invoice is not found
     const defaultValues = {
         fatura_numarasi: invoice?.data?.fatura_numarasi || '',
         musteri_adi: invoice?.data?.musteri_adi || '',
