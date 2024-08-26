@@ -14,20 +14,30 @@ export const EditInvoice = () => {
     const navigate = useNavigate();
     const { data: invoice, isLoading } = useOne({ resource: 'invoices', id });
 
+
+
     const { onFinish, mutation } = useForm({
-        action: 'update',
+        action: 'edit',
         resource: 'invoices',
-        id: Number(id), // Ensure the ID is passed correctly
+        id: Number(id),
     });
 
-    // Handle form submission
+
     const onFinishHandler = (values) => {
-        onFinish({
+        // Format the date to "YYYY-MM-DD"
+        const formattedValues = {
+            id: Number(id),
             ...values,
-            tutar: parseFloat(values.tutar).toFixed(2),  // Ensure the amount is a float with two decimal places
-            tarih: values.tarih?.format('YYYY-MM-DD'),  // Ensure the date is in the correct format
-        });
+            tutar: parseFloat(values.tutar),
+            tarih: values?.tarih ? values.tarih.format('YYYY-MM-DD') : null,
+        };
+
+        console.log("Formatted form values before submission:", formattedValues);
+
+        onFinish(formattedValues);
     };
+
+
 
     // Show success message on successful submission
     React.useEffect(() => {
@@ -58,33 +68,36 @@ export const EditInvoice = () => {
     };
 
     return (
-        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1px' }}>
-            <h1 style={{ textAlign: 'center', marginBottom: '15px' }}>Edit Invoice</h1>
+        <div className="container">
+            <h1 className="heading">Edit Invoice</h1>
             <Form
                 layout="vertical"
                 onFinish={onFinishHandler}
                 initialValues={defaultValues}
-                style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}
+                className="form-container"
             >
                 <Form.Item
                     label="Invoice Number"
                     name="fatura_numarasi"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please input the invoice number!' }]}
                 >
-                    <Input placeholder={defaultValues.fatura_numarasi || "e.g. FTR-019"} />
+                    <Input placeholder={defaultValues.fatura_numarasi || "e.g. FTR-000"} />
                 </Form.Item>
 
                 <Form.Item
                     label="Customer Name"
                     name="musteri_adi"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please input the customer name!' }]}
                 >
-                    <Input placeholder={defaultValues.musteri_adi || "e.g. Sevil Yılmaz"} />
+                    <Input placeholder={defaultValues.musteri_adi || "e.g. name"} />
                 </Form.Item>
 
                 <Form.Item
                     label="Date"
                     name="tarih"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please select the date!' }]}
                 >
                     <DatePicker
@@ -98,26 +111,28 @@ export const EditInvoice = () => {
                 <Form.Item
                     label="Amount"
                     name="tutar"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please input the amount!' }]}
                 >
                     <InputNumber
                         min={0}
                         step={0.01}
                         style={{ width: '100%' }}
-                        placeholder={defaultValues.tutar.toFixed(2) || "e.g. 630.00"}
+                        placeholder={defaultValues.tutar || "e.g. 0.00"}
                     />
                 </Form.Item>
 
                 <Form.Item
                     label="Payment Method"
                     name="payment_method"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please select the payment method!' }]}
                 >
                     <Select placeholder={defaultValues.payment_method || "e.g. Credit Card"}>
                         {PAYMENT_METHODS.map(method => (
-                            <Select.Option key={method} value={method}>
+                            <Option key={method} value={method}>
                                 {method}
-                            </Select.Option>
+                            </Option>
                         ))}
                     </Select>
                 </Form.Item>
@@ -125,33 +140,24 @@ export const EditInvoice = () => {
                 <Form.Item
                     label="Invoice Status"
                     name="invoice_status"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please select the invoice status!' }]}
                 >
                     <Select placeholder={defaultValues.invoice_status || "e.g. Paid"}>
                         {INVOICE_STATUSES.map(status => (
-                            <Select.Option key={status} value={status}>
+                            <Option key={status} value={status}>
                                 {status}
-                            </Select.Option>
+                            </Option>
                         ))}
                     </Select>
                 </Form.Item>
 
                 <Form.Item>
-                    <Space style={{ width: '100%', justifyContent: 'space-between' }}>
+                    <Space className="button-space">
                         <Button
                             onClick={handleBack}
                             icon={<ArrowLeftOutlined />}
-                            style={{
-                                backgroundColor: '#fff',
-                                borderColor: '#1890ff', // Blue border color
-                                color: '#000',
-                                borderRadius: '4px',
-                                padding: '0 16px',
-                                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                borderWidth: '2px',
-                            }}
+                            className="button-back"
                         >
                             Go Back
                         </Button>
@@ -159,7 +165,7 @@ export const EditInvoice = () => {
                             type="primary"
                             htmlType="submit"
                             loading={mutation.isLoading}
-                            style={{ backgroundColor: '#52c41a', borderColor: '#52c41a' }}
+                            className="button-submit"
                         >
                             Submit
                         </Button>

@@ -33,8 +33,8 @@ export const CreateInvoice = () => {
     };
 
     return (
-        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-            <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Create a New Invoice</h1>
+        <div className="container">
+            <h1 className="heading">Create a New Invoice</h1>
             <Form
                 layout="vertical"
                 onFinish={onFinishHandler}
@@ -43,6 +43,7 @@ export const CreateInvoice = () => {
                 <Form.Item
                     label="Invoice Number"
                     name="fatura_numarasi"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please input the invoice number!' }]}
                 >
                     <Input placeholder="Enter invoice number" />
@@ -51,6 +52,7 @@ export const CreateInvoice = () => {
                 <Form.Item
                     label="Customer Name"
                     name="musteri_adi"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please input the customer name!' }]}
                 >
                     <Input placeholder="Enter customer name" />
@@ -59,6 +61,7 @@ export const CreateInvoice = () => {
                 <Form.Item
                     label="Date"
                     name="tarih"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please select the date!' }]}
                 >
                     <DatePicker format="YYYY-MM-DD" style={{ width: '100%' }} />
@@ -67,6 +70,7 @@ export const CreateInvoice = () => {
                 <Form.Item
                     label="Amount"
                     name="tutar"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please input the amount!' }]}
                 >
                     <Input type="number" step=".01" placeholder="Enter amount" />
@@ -75,6 +79,7 @@ export const CreateInvoice = () => {
                 <Form.Item
                     label="Payment Method"
                     name="payment_method"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please select the payment method!' }]}
                 >
                     <Select placeholder="Select payment method">
@@ -87,6 +92,7 @@ export const CreateInvoice = () => {
                 <Form.Item
                     label="Invoice Status"
                     name="invoice_status"
+                    className="form-item"
                     rules={[{ required: true, message: 'Please select the invoice status!' }]}
                 >
                     <Select placeholder="Select invoice status">
@@ -97,21 +103,11 @@ export const CreateInvoice = () => {
                 </Form.Item>
 
                 <Form.Item>
-                    <Space style={{ width: '100%', justifyContent: 'space-between' }}>
+                    <Space className="button-space">
                         <Button
                             onClick={handleBack}
                             icon={<ArrowLeftOutlined />}
-                            style={{
-                                backgroundColor: '#fff',
-                                borderColor: '#1890ff',
-                                color: '#000',
-                                borderRadius: '4px',
-                                padding: '0 16px',
-                                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                borderWidth: '2px',
-                            }}
+                            className="button-back"
                         >
                             Go Back
                         </Button>
@@ -119,7 +115,7 @@ export const CreateInvoice = () => {
                             type="primary"
                             htmlType="submit"
                             loading={mutation.isLoading}
-                            style={{ backgroundColor: '#52c41a', borderColor: '#52c41a' }}
+                            className="button-submit"
                         >
                             Submit
                         </Button>

@@ -1,10 +1,12 @@
 import type { DataProvider } from "@refinedev/core";
-import file from './data/products.json';
+import file from './data/invoices.json';
 
 const API_URL = "https://api.fake-rest.refine.dev";
 
+
 // Extract data from the imported JSON file
 const localData = file.data;
+
 
 export const dataProvider: DataProvider = {
     getList: async ({ resource, pagination, filters, sorters, meta }) => {
@@ -39,7 +41,6 @@ export const dataProvider: DataProvider = {
 
         // Total count of data
         const total = localData.length;
-        console.log(data);
         return {
             data,
             total,
@@ -54,43 +55,50 @@ export const dataProvider: DataProvider = {
         if (!data) {
             throw new Error("Not found");
         }
-        console.log(`Product found:`, data);  // Log the found product
+
         return { data };
     },
 
     create: async ({ resource, variables }) => {
-        // Mock implementation for creating a new item
+        let newId = localData.length > 0 ? Math.max(...localData.map(item => item.id)) + 1 : 1;
+
+        while (localData.find(item => item.id === newId)) {
+            newId += 1; // Ensure the ID is unique
+        }
+
         const newItem = {
-            id: localData.length + 1, // Assign a new ID based on the length of the array
-            ...variables, // Merge the provided variables (e.g., name, description, etc.)
+            id: newId,
+            ...variables,
         };
 
-        localData.push(newItem); // Add the new item to the local data array
+        localData.push(newItem);
 
         return {
             data: newItem,
         };
     },
+
     update: async ({ resource, id, variables }) => {
+
         const index = localData.findIndex(item => item.id === Number(id));
         if (index === -1) throw new Error("Not found");
-    
+
         // Update the item with the new variables
         const updatedItem = {
             ...localData[index],
             ...variables, // Merge the updated fields
         };
-    
+
         // Replace the old item with the updated one
         localData[index] = updatedItem;
-    
+
         return {
-            data: updatedItem,
+            updatedItem,
         };
     },
-    
-    
-     deleteOne: async ({ resource, id }) => {
+
+
+    deleteOne: async ({ resource, id }) => {
         const index = localData.findIndex(item => item.id === id);
         if (index === -1) throw new Error("Not found");
 
@@ -101,5 +109,5 @@ export const dataProvider: DataProvider = {
         };
     },
     getApiUrl: () => API_URL,
-   
+
 };

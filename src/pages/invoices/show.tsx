@@ -1,4 +1,4 @@
-import { useOne } from "@refinedev/core";
+{/**import { useOne } from "@refinedev/core";
 import { useParams } from "react-router-dom";
 import { Card, Descriptions, Spin, Alert } from "antd";
 
@@ -37,3 +37,7 @@ export const ShowProduct = () => {
         </Card>
     );
 };
+ */}  
+ 
+ 
+ // I used a model for showing an invoice, we can find the model in the components file

@@ -5,13 +5,16 @@ import { EyeOutlined, EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-de
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { InvoiceDetailsModal } from '../../component/InvoiceDetailsModal';
 import { dataProvider } from '../../providers/data-provider';
+import len from '../../providers/data/invoices.json';
+import '../../styles/custom.css';
 
 export const ListProducts = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [invoiceDetails, setInvoiceDetails] = useState(null);
     const navigate = useNavigate(); // Initialize useNavigate
-    const pagelen = 7;
+    const pagelen = 7
+
 
     const showModal = (details) => {
         setInvoiceDetails(details);
@@ -34,7 +37,7 @@ export const ListProducts = () => {
         pagination: { current: 1, pageSize: pagelen },
         sorters: { initial: [{ field: "id", order: "asc" }] },
     });
-
+    console.log(len);
     // Ensure refetch happens after the component is mounted or data length changes
     useEffect(() => {
         refetch();
@@ -47,11 +50,32 @@ export const ListProducts = () => {
         }
     }, [searchTerm]);
 
-    const filteredData = data?.data?.filter((invoice) =>
+    let filteredData = data?.data?.filter((invoice) =>
         invoice.musteri_adi.toLowerCase().includes(searchTerm.toLowerCase()) ||
         invoice.fatura_numarasi.toLowerCase().includes(searchTerm.toLowerCase())
     ) ?? [];
 
+    if (searchTerm !== "") {
+        filteredData = len?.data?.filter((invoice) =>
+            invoice.musteri_adi.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            invoice.fatura_numarasi.toLowerCase().includes(searchTerm.toLowerCase())
+        ) ?? [];
+    }
+
+    // Ensure unique keys for data rows
+    const uniqueFilteredData = filteredData.reduce((acc, current) => {
+        const x = acc.find(item => item.id === current.id);
+        if (!x) {
+            return acc.concat([current]);
+        } else {
+            return acc;
+        }
+    }, []).map((item, index) => ({
+        ...item,
+        key: `${item.id}-${index}`, // Create a unique key for each item
+    }));
+
+    console.log(filteredData);
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -83,8 +107,9 @@ export const ListProducts = () => {
     };
 
     const handleEdit = (id) => {
-        console.log(`Edit ID ${id}`);
-        navigate(`/edit/${id}`);
+
+        console.log(data);
+        navigate(`/edit/${id}`, { state: { invoiceData: data } });
     };
 
     const handleDelete = (id) => {
@@ -158,7 +183,7 @@ export const ListProducts = () => {
             sorter: true,
             sortOrder: getSorter("tutar"),
             onHeaderCell: () => ({ onClick: () => onSort("tutar") }),
-        },{
+        }, {
             title: "invoice_status",
             dataIndex: "invoice_status",
             key: "invoice_status",
@@ -176,7 +201,7 @@ export const ListProducts = () => {
                         onClick={() => handleView(record.id)}
                         type="primary"
                         size="small"
-                        
+
                     >
                         View
                     </Button>
@@ -205,44 +230,36 @@ export const ListProducts = () => {
 
     return (
         <div>
-            <h1>Invoices</h1>
-            <Space
-                style={{
-                    marginBottom: "16px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between", // This will space out the items
-                    backgroundColor: "",
-                    padding: "0 16px" // Add some padding if needed
-                }}
-            >
+            <h1 className="main-text">Fatura listesi</h1>
+            <Space className="space-container">
                 <Input.Search
                     placeholder="Search by name or invoice number"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    style={{ width: 300,backgroundColor: "" }}
+                    className="search-input"
                 />
                 <Button
                     icon={<PlusOutlined />}
                     onClick={handleCreate}
                     type="primary"
-                    style={{ backgroundColor: "#52c41a", borderColor: "#52c41a", color: "#fff" }}
+                    className="create-button"
                 >
                     Create Invoice
                 </Button>
             </Space>
+
             <Table
                 columns={columns}
-                dataSource={filteredData}
+                dataSource={uniqueFilteredData}
                 pagination={false}
-                rowKey="id"
+                rowKey="key"
             />
             <Pagination
                 current={current}
                 total={data?.total ?? 0}
                 pageSize={pagelen} // Match this with the pageSize used in useTable
                 onChange={(page) => setCurrent(page)}
-                style={{ marginTop: "16px", display: "flex", justifyContent: "center", alignItems: "flex-end" }}
+                className="pagination-container"
             />
             <InvoiceDetailsModal
                 visible={isModalVisible}

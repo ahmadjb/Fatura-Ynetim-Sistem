@@ -1,0 +1,130 @@
+/* src/styles/custom.css */
+.main-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* src/styles/global.css */
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading styling */
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form item styling */
+.form-item {
+    margin-bottom: 16px; /* Adjust spacing between form items */
+}
+
+/* Button styling */
+.button-back {
+    background-color: #fff;
+    border-color: #1890ff;
+    color: #000;
+    border-radius: 4px;
+    padding: 0 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    border-width: 2px;
+}
+
+.button-submit {
+    background-color: #52c41a;
+    border-color: #52c41a;
+}
+
+/* Space between buttons */
+.button-space {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* src/styles/global.css */
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1px; /* Adjust padding as needed */
+}
+
+/* Heading styling */
+.heading {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Form styling */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form item styling */
+.form-item {
+    margin-bottom: 16px; /* Adjust spacing between form items */
+}
+
+/* Button styling */
+.button-back {
+    background-color: #fff;
+    border-color: #1890ff; /* Blue border color */
+    color: #000;
+    border-radius: 4px;
+    padding: 0 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    border-width: 2px;
+}
+
+.button-submit {
+    background-color: #52c41a;
+    border-color: #52c41a;
+}
+
+/* Space between buttons */
+.button-space {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.space-container {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: /* Add your color here if needed */;
+    padding: 0 16px;
+}
+
+.search-input {
+    width: 300px;
+    background-color: /* Add your color here if needed */;
+}
+
+.create-button {
+    background-color: #52c41a;
+    border-color: #52c41a;
+    color: #fff;
+}
+
+.pagination-container {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}

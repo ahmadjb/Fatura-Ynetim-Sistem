@@ -197,6 +197,5 @@
             "payment_method": "Bank Transfer",
             "invoice_status": "Pending"
         }
-    ],
-    "total": 152
+    ]
 }
