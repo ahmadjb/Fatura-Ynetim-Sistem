@@ -113,7 +113,7 @@ export const ListProducts = () => {
 
     const handleDelete = (id) => {
 
-        const selectedInvoice = data?.data?.find(invoice => invoice.id === id);
+        const selectedInvoice = len?.data?.find(invoice => invoice.id === id);
         const customerName = selectedInvoice?.musteri_adi || 'müşteri';
 
         Modal.confirm({
