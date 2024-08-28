@@ -52,13 +52,15 @@ export const ListProducts = () => {
 
     let filteredData = data?.data?.filter((invoice) =>
         invoice.musteri_adi.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        invoice.fatura_numarasi.toLowerCase().includes(searchTerm.toLowerCase())
+        invoice.fatura_numarasi.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        invoice.fatura_durumu.toLowerCase().includes(searchTerm.toLowerCase())
     ) ?? [];
 
     if (searchTerm !== "") {
         filteredData = len?.data?.filter((invoice) =>
             invoice.musteri_adi.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            invoice.fatura_numarasi.toLowerCase().includes(searchTerm.toLowerCase())
+            invoice.fatura_numarasi.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            invoice.fatura_durumu.toLowerCase().includes(searchTerm.toLowerCase())
         ) ?? [];
     }
 
@@ -255,13 +257,14 @@ export const ListProducts = () => {
                 pagination={false}
                 rowKey="key"
             />
+            {!searchTerm ? 
             <Pagination
                 current={current}
                 total={data?.total ?? 0}
                 pageSize={pagelen} // Match this with the pageSize used in useTable
                 onChange={(page) => setCurrent(page)}
                 className="pagination-container"
-            />
+            />:""}
             <InvoiceDetailsModal
                 visible={isModalVisible}
                 details={invoiceDetails}
